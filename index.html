@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Rajkumar Patel's portfolio: electrical engineering studies, learning projects, and educational web tools.">
 <meta name="theme-color" content="#070b14">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4615523830375296"
+     crossorigin="anonymous"></script>
 <title>Rajkumar Patel | Electrical Engineering Student</title>
 <style>
 
@@ -968,12 +970,6 @@ const configuredAdSpaces = Array.from(document.querySelectorAll(".ad-space"))
   .filter(space => adSlotIds[Number(space.dataset.adPosition)]);
 
 if (adsensePublisherId && configuredAdSpaces.length) {
-  const adsenseScript = document.createElement("script");
-  adsenseScript.async = true;
-  adsenseScript.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${encodeURIComponent(adsensePublisherId)}`;
-  adsenseScript.crossOrigin = "anonymous";
-  document.head.append(adsenseScript);
-
   configuredAdSpaces.forEach(space => {
     const ad = document.createElement("ins");
     ad.className = "adsbygoogle";
