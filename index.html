@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Rajkumar Patel's portfolio: electrical engineering studies, learning projects, and educational web tools.">
+<meta name="theme-color" content="#070b14">
+<title>Rajkumar Patel | Electrical Engineering Student</title>
+<style>
+
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* photo circle me perfect fit hogi */
+  border-radius: 50%;
+  display: block;
+}
+
+
+
+
+
+:root{
+  --bg:#070b14; --bg2:#0b1220; --card:rgba(255,255,255,.04);
+  --line:rgba(255,255,255,.10); --txt:#e8eefc; --mut:#8ea0c0;
+  --cy:#00e5ff; --am:#ffb020; --gr:#22e08a; --rd:#ff5c72;
+  --r:16px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  font-family:'Segoe UI',system-ui,-apple-system,Roboto,sans-serif;
+  background:var(--bg); color:var(--txt); line-height:1.65; overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(900px 500px at 12% -5%, rgba(0,229,255,.16), transparent 60%),
+    radial-gradient(800px 500px at 90% 8%, rgba(255,176,32,.12), transparent 60%),
+    radial-gradient(700px 600px at 50% 110%, rgba(34,224,138,.10), transparent 60%),
+    var(--bg);
+}
+body::after{
+  content:"";position:fixed;inset:0;z-index:-1;opacity:.35;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(circle at 50% 30%,#000 20%,transparent 78%);
+}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#0a101c}
+::-webkit-scrollbar-thumb{background:#1d2a42;border-radius:10px}
+::-webkit-scrollbar-thumb:hover{background:#2b3d5e}
+
+/* ---------- NAV ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 5vw;backdrop-filter:blur(14px);
+  background:rgba(7,11,20,.72);border-bottom:1px solid var(--line);
+}
+.logo{color:var(--txt);text-decoration:none;font-weight:800;letter-spacing:.5px;font-size:1.05rem;display:flex;gap:8px;align-items:center}
+.logo span{color:var(--cy)}
+.logo .dot{width:9px;height:9px;border-radius:50%;background:var(--cy);
+  box-shadow:0 0 10px var(--cy);animation:pulse 1.8s infinite}
+@keyframes pulse{50%{opacity:.35;transform:scale(.75)}}
+.nav-links{display:flex;gap:6px;flex-wrap:wrap}
+.nav-links a{
+  color:var(--mut);text-decoration:none;font-size:.88rem;font-weight:600;
+  padding:8px 13px;border-radius:10px;transition:.25s;white-space:nowrap;
+}
+.nav-links a:hover,.nav-links a.on{color:var(--cy);background:rgba(0,229,255,.09)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--txt);
+  font-size:1.2rem;padding:6px 12px;border-radius:10px;cursor:pointer}
+
+/* ---------- LAYOUT ---------- */
+section{padding:90px 5vw;max-width:1240px;margin:0 auto}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:.74rem;font-weight:800;
+  letter-spacing:2.4px;text-transform:uppercase;color:var(--cy);
+  border:1px solid rgba(0,229,255,.3);background:rgba(0,229,255,.07);
+  padding:6px 14px;border-radius:99px;margin-bottom:18px;
+}
+h2.title{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;letter-spacing:-.5px;margin-bottom:12px}
+h2.title em{font-style:normal;color:var(--cy)}
+.sub{color:var(--mut);max-width:680px;margin-bottom:44px;font-size:.98rem}
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:100vh;display:grid;grid-template-columns:1.15fr .85fr;
+  gap:60px;align-items:center;padding-top:120px;max-width:1240px;margin:0 auto;
+}
+.hero h1{font-size:clamp(2.1rem,5.2vw,3.6rem);font-weight:900;line-height:1.1;letter-spacing:-1.5px;margin:14px 0}
+.hero h1 em{font-style:normal;background:linear-gradient(100deg,var(--cy),var(--gr));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{color:var(--mut);font-size:1.05rem;max-width:560px;margin-bottom:30px}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;padding:13px 26px;border-radius:12px;
+  font-weight:700;font-size:.92rem;text-decoration:none;cursor:pointer;border:none;
+  transition:.28s;font-family:inherit;
+}
+.btn-p{background:linear-gradient(100deg,var(--cy),#00b8d4);color:#04121a;
+  box-shadow:0 10px 30px -10px rgba(0,229,255,.6)}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 16px 38px -10px rgba(0,229,255,.75)}
+.btn-g{background:transparent;color:var(--txt);border:1px solid var(--line)}
+.btn-g:hover{border-color:var(--cy);color:var(--cy);transform:translateY(-3px)}
+
+.stats{display:flex;gap:34px;flex-wrap:wrap}
+.stat b{display:block;font-size:1.75rem;font-weight:900;color:var(--cy);line-height:1.1}
+.stat span{font-size:.76rem;color:var(--mut);text-transform:uppercase;letter-spacing:1.4px}
+
+/* Profile card */
+.pcard{
+  background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+  border:1px solid var(--line);border-radius:24px;padding:34px;text-align:center;
+  position:relative;overflow:hidden;backdrop-filter:blur(8px);
+}
+.pcard::before{content:"";position:absolute;inset:-2px;border-radius:26px;
+  background:conic-gradient(from 0deg,transparent,rgba(0,229,255,.5),transparent 30%);
+  animation:spin 6s linear infinite;z-index:-1}
+@keyframes spin{to{transform:rotate(360deg)}}
+.avatar{
+  width:132px;height:132px;border-radius:50%;margin:0 auto 18px;
+  display:grid;place-items:center;font-size:2.7rem;font-weight:900;color:#04121a;
+  background:linear-gradient(140deg,var(--cy),var(--gr));
+  box-shadow:0 0 0 5px rgba(0,229,255,.13),0 0 40px -8px rgba(0,229,255,.7);
+  transition:.4s;
+}
+.pcard h3{font-size:1.3rem;font-weight:800}
+.pcard .role{color:var(--cy);font-size:.86rem;font-weight:700;letter-spacing:1.6px;
+  text-transform:uppercase;margin-bottom:16px}
+.pcard ul{list-style:none;text-align:left;font-size:.87rem;color:var(--mut);
+  border-top:1px solid var(--line);padding-top:16px;display:grid;gap:9px}
+.pcard ul li{display:flex;gap:9px}
+.pcard ul li b{color:var(--txt);font-weight:600}
+
+/* Switch toy */
+.switchbox{margin-top:20px;border-top:1px solid var(--line);padding-top:18px}
+.switchbox p{font-size:.74rem;color:var(--mut);letter-spacing:1.6px;
+  text-transform:uppercase;margin-bottom:12px;font-weight:700}
+.switchrow{display:flex;align-items:center;justify-content:center;gap:16px}
+.bulb{width:44px;height:44px;border-radius:50%;background:#1a2333;
+  border:2px solid #2a3a55;transition:.35s;display:grid;place-items:center;font-size:1.1rem}
+.bulb.on{background:radial-gradient(circle,#fff5c2,#ffb020);
+  border-color:#ffd76a;box-shadow:0 0 34px 8px rgba(255,176,32,.6)}
+.toggle{width:62px;height:32px;border-radius:99px;background:#1a2333;border:1px solid #2a3a55;
+  position:relative;cursor:pointer;transition:.3s}
+.toggle::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;
+  border-radius:50%;background:var(--mut);transition:.3s}
+.toggle.on{background:rgba(0,229,255,.2);border-color:var(--cy)}
+.toggle.on::after{left:33px;background:var(--cy);box-shadow:0 0 14px var(--cy)}
+
+/* ---------- CARDS ---------- */
+.grid{display:grid;gap:22px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:26px;transition:.3s;position:relative;overflow:hidden;
+}
+.card:hover{transform:translateY(-5px);border-color:rgba(0,229,255,.4);
+  background:rgba(255,255,255,.06)}
+.card .ico{font-size:1.6rem;margin-bottom:12px;display:block}
+.card h4{font-size:1.02rem;font-weight:800;margin-bottom:8px}
+.card p{font-size:.87rem;color:var(--mut)}
+
+/* Skills */
+.skill{margin-bottom:20px}
+.skill-top{display:flex;justify-content:space-between;font-size:.88rem;
+  font-weight:700;margin-bottom:8px}
+.skill-top span:last-child{color:var(--cy);font-variant-numeric:tabular-nums}
+.bar{height:7px;background:rgba(255,255,255,.07);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--cy),var(--gr));transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+
+/* Timeline */
+.tl{position:relative;padding-left:34px}
+.tl::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;
+  background:linear-gradient(var(--cy),transparent)}
+.tl-item{position:relative;margin-bottom:34px}
+.tl-item::before{content:"";position:absolute;left:-30px;top:7px;width:12px;height:12px;
+  border-radius:50%;background:var(--bg);border:2px solid var(--cy);
+  box-shadow:0 0 0 4px rgba(0,229,255,.12)}
+.tl-item .yr{font-size:.74rem;font-weight:800;letter-spacing:1.6px;color:var(--am);
+  text-transform:uppercase}
+.tl-item h4{font-size:1.05rem;font-weight:800;margin:4px 0}
+.tl-item p{font-size:.87rem;color:var(--mut)}
+
+/* Certs */
+.cert{display:flex;gap:14px;align-items:flex-start;padding:18px;border-radius:14px;
+  background:var(--card);border:1px solid var(--line);transition:.3s}
+.cert:hover{border-color:var(--gr);transform:translateX(5px)}
+.cert .ci{width:42px;height:42px;flex:0 0 42px;border-radius:11px;display:grid;place-items:center;
+  background:rgba(34,224,138,.12);border:1px solid rgba(34,224,138,.3);font-size:1.15rem}
+.cert h4{font-size:.95rem;font-weight:800}
+.cert p{font-size:.79rem;color:var(--mut)}
+
+/* ---------- TOOLS ---------- */
+.toolwrap{border:1px solid var(--line);border-radius:20px;overflow:hidden;
+  background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.015))}
+.tooltabs{display:flex;gap:8px;padding:16px;overflow-x:auto;border-bottom:1px solid var(--line);
+  background:rgba(0,0,0,.22)}
+.tooltabs::-webkit-scrollbar{height:5px}
+.ttab{
+  padding:9px 16px;border-radius:10px;border:1px solid var(--line);background:transparent;
+  color:var(--mut);font-weight:700;font-size:.79rem;cursor:pointer;white-space:nowrap;
+  transition:.25s;font-family:inherit;
+}
+.ttab:hover{color:var(--txt);border-color:rgba(0,229,255,.4)}
+.ttab.on{background:rgba(0,229,255,.14);color:var(--cy);border-color:var(--cy)}
+.tpanel{display:none;padding:30px}
+.tpanel.on{display:block;animation:fade .35s}
+@keyframes fade{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+.tpanel h3{font-size:1.15rem;font-weight:800;margin-bottom:6px}
+.tpanel .desc{font-size:.84rem;color:var(--mut);margin-bottom:22px;
+  border-left:2px solid var(--cy);padding-left:12px}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-bottom:20px}
+label{display:flex;flex-direction:column;gap:6px;font-size:.78rem;font-weight:700;
+  color:var(--mut);letter-spacing:.5px}
+input,select{
+  background:rgba(0,0,0,.4);border:1px solid var(--line);border-radius:10px;
+  padding:11px 13px;color:var(--txt);font-size:.92rem;font-family:inherit;
+  font-variant-numeric:tabular-nums;transition:.25s;width:100%;
+}
+input:focus,select:focus{outline:none;border-color:var(--cy);
+  box-shadow:0 0 0 3px rgba(0,229,255,.12)}
+select option{background:#0b1220}
+.out{
+  margin-top:20px;padding:20px;border-radius:14px;background:rgba(0,0,0,.35);
+  border:1px solid var(--line);font-size:.9rem;display:none;
+}
+.out.show{display:block;animation:fade .35s}
+.res{display:flex;justify-content:space-between;gap:14px;padding:11px 0;
+  border-bottom:1px dashed rgba(255,255,255,.09)}
+.res:last-child{border:none}
+.res span{color:var(--mut)}
+.res b{color:var(--cy);font-variant-numeric:tabular-nums;font-weight:800;font-size:1rem}
+.big{font-size:1.7rem!important;color:var(--gr)!important}
+.tag{display:inline-block;padding:4px 11px;border-radius:99px;font-size:.72rem;
+  font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-top:12px}
+.ok{background:rgba(34,224,138,.14);color:var(--gr);border:1px solid rgba(34,224,138,.35)}
+.warn{background:rgba(255,176,32,.14);color:var(--am);border:1px solid rgba(255,176,32,.35)}
+.bad{background:rgba(255,92,114,.14);color:var(--rd);border:1px solid rgba(255,92,114,.35)}
+.formula{font-family:'Consolas',monospace;font-size:.78rem;color:var(--am);
+  background:rgba(255,176,32,.07);border:1px dashed rgba(255,176,32,.3);
+  padding:9px 12px;border-radius:9px;margin-top:14px;display:block}
+
+/* Projects */
+.proj{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:24px;transition:.3s;border-top:3px solid transparent}
+.proj:hover{transform:translateY(-6px);border-top-color:var(--cy);
+  background:rgba(255,255,255,.06)}
+.proj .num{font-size:.72rem;font-weight:900;letter-spacing:2px;color:var(--cy);opacity:.7}
+.proj h4{font-size:1rem;font-weight:800;margin:8px 0}
+.proj p{font-size:.85rem;color:var(--mut)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.chip{font-size:.7rem;padding:4px 10px;border-radius:99px;background:rgba(0,229,255,.09);
+  color:var(--cy);border:1px solid rgba(0,229,255,.22);font-weight:700}
+
+/* Contact */
+.cgrid{display:grid;grid-template-columns:1fr 1.15fr;gap:30px}
+.cbox{display:flex;gap:14px;align-items:center;padding:16px;border-radius:14px;
+  background:var(--card);border:1px solid var(--line);margin-bottom:14px;transition:.3s;
+  text-decoration:none;color:inherit}
+.cbox:hover{border-color:var(--cy);transform:translateX(6px)}
+.cbox .ci{width:44px;height:44px;flex:0 0 44px;border-radius:12px;display:grid;place-items:center;
+  background:rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.28);font-size:1.15rem}
+.cbox h5{font-size:.8rem;color:var(--mut);font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.cbox p{font-size:.93rem;font-weight:700}
+textarea{resize:vertical;min-height:110px;background:rgba(0,0,0,.4);border:1px solid var(--line);
+  border-radius:10px;padding:12px 14px;color:var(--txt);font-family:inherit;font-size:.92rem;width:100%}
+textarea:focus{outline:none;border-color:var(--cy);box-shadow:0 0 0 3px rgba(0,229,255,.12)}
+form .fgrid{margin-bottom:14px}
+
+footer{border-top:1px solid var(--line);padding:34px 5vw;text-align:center;
+  color:var(--mut);font-size:.83rem}
+footer b{color:var(--cy)}
+.footer-links{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:16px}
+.footer-links a{color:var(--mut);text-decoration:none}
+.footer-links a:hover{color:var(--cy)}
+.ad-space{max-width:970px;min-height:90px;margin:12px auto;padding:18px;
+  display:grid;place-items:center;border:1px dashed var(--line);border-radius:12px;
+  color:var(--mut);font-size:.75rem;letter-spacing:1px;text-transform:uppercase}
+.ad-space:empty{display:none}
+.tool-notice{margin:0 auto 28px;padding:16px 18px;max-width:1000px;
+  border:1px solid rgba(255,176,32,.35);border-radius:12px;
+  background:rgba(255,176,32,.07);color:var(--mut);font-size:.88rem}
+.tool-notice strong{color:var(--am)}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(26px);transition:.75s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:920px){
+  .hero{grid-template-columns:1fr;gap:44px;padding-top:110px;text-align:center}
+  .hero p.lead{margin-inline:auto}
+  .cta,.stats{justify-content:center}
+  .cgrid{grid-template-columns:1fr}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
+    background:rgba(7,11,20,.98);padding:16px;border-bottom:1px solid var(--line)}
+  .nav-links.open{display:flex}
+  .burger{display:block}
+}
+@media(max-width:520px){
+  section{padding:64px 5vw}
+  .tpanel{padding:20px}
+  .pcard{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav>
+  <a class="logo" href="#home" aria-label="Rajkumar Patel, home"><span class="dot"></span><span>Rajkumar Patel</span></a>
+  <div class="nav-links" id="navLinks">
+    <a href="#home" class="on">Home</a>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#learning">Learning</a>
+    <a href="#tools">⚡ Tools</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="burger" id="burger" type="button" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false">☰</button>
+</nav>
+
+<!-- ================= HERO / PROFILE ================= -->
+<div class="hero" id="home">
+  <div>
+    <span class="eyebrow">⚡ Electrical Engineering Student</span>
+    <h1>Hi, I'm <em>Rajkumar Patel</em><br>Learning, building &amp;<br>exploring technology.</h1>
+    <p class="lead">
+      Diploma student exploring electrical engineering, web development, and AI.
+      This portfolio brings together learning projects, study notes, and simple browser-based tools.
+    </p>
+    <div class="cta">
+      <a href="#tools" class="btn btn-p">⚡ Try Live Calculators</a>
+      <a href="#contact" class="btn btn-g">📩 Contact Me</a>
+    </div>
+  </div>
+
+  <!-- PROFILE CARD -->
+  <div class="pcard">
+    <div class="avatar" id="avatar">
+  <img src="my-photo.jpeg" alt="Rajkumar Patel">
+    </div>
+
+    <h3>Rajkumar Patel</h3>
+    <div class="role">Electrical Engineering Student</div>
+    <ul>
+      <li>📍 <b>Location:</b> Kushinagar, Uttar Pradesh, India</li>
+      <li>🎓 <b>Studies:</b> Diploma in Electrical Engineering</li>
+      <li>💼 <b>Interests:</b> Electrical systems · AI · Web development</li>
+      <li>🛠️ <b>Learning:</b> AutoCAD · AI tools · HTML/CSS/JavaScript</li>
+      <li>📧 <b>Email:</b> patelankit4663@gmail.com</li>
+    </ul>
+
+    <!-- TRY SOMETHING -->
+    <div class="switchbox">
+      <p>⚡ Try Something</p>
+      <div class="switchrow">
+        <div class="bulb" id="bulb">💡</div>
+        <div class="toggle" id="toggle"></div>
+      </div>
+      <p style="margin-top:12px;letter-spacing:1px;color:var(--cy)" id="switchMsg">DEMO OFF</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="rv">
+    <span class="eyebrow">About Me</span>
+    <h2 class="title">Engineering <em>with precision</em></h2>
+    <p class="sub">
+      Main Diploma in Electrical Engineering ka student hoon. Is website par apni
+      padhai, chhote projects aur technology me chal rahi learning share karta hoon.
+    </p>
+  </div>
+  <div class="grid g3 rv">
+    <div class="card">
+      <span class="ico">🔌</span>
+      <h4>Electrical Engineering</h4>
+      <p>Power systems, electrical machines, protection aur estimation jaise subjects
+         ko padh raha hoon aur practice ke liye chhote tools bana raha hoon.</p>
+    </div>
+    <div class="card">
+      <span class="ico">📐</span>
+      <h4>Technical Drafting</h4>
+      <p>AutoCAD aur electrical diagrams ke basics par kaam kar raha hoon; yeh learning
+         work hai, certified engineering design service nahi.</p>
+    </div>
+    <div class="card">
+      <span class="ico">🤖</span>
+      <h4>AI &amp; Web Development</h4>
+      <p>AI tools explore karta hoon aur HTML, CSS, JavaScript se responsive websites
+         aur browser-based prototypes banata hoon.</p>
+    </div>
+    <div class="card">
+      <span class="ico">🧮</span>
+      <h4>Learning by Building</h4>
+      <p>Simple calculations aur interactive demos bana kar concepts ko samajhne ki
+         koshish karta hoon.</p>
+    </div>
+    <div class="card">
+      <span class="ico">🛡️</span>
+      <h4>Safety First</h4>
+      <p>Yahan diye gaye examples educational hain. Real electrical work ke liye
+         qualified professional aur lagu standards zaroori hain.</p>
+    </div>
+    <div class="card">
+      <span class="ico">🎓</span>
+      <h4>Continuous Learning</h4>
+      <p>AI, productivity aur technical subjects ke naye tools seekh kar apne projects
+         me apply karta hoon.</p>
+    </div>
+  </div>
+</section>
+
+<div class="ad-space" data-ad-position="0">Ad space · Add publisher and slot IDs to enable</div>
+
+<!-- ================= EDUCATION ================= -->
+<section id="education">
+  <div class="rv">
+    <span class="eyebrow">Education</span>
+    <h2 class="title">Academic <em>background</em></h2>
+    <p class="sub">Education aur padhai ke dauran explore kiye gaye topics.</p>
+  </div>
+  <div class="tl rv">
+    <div class="tl-item">
+      <div class="yr">2024–2027 (expected)</div>
+      <h4>Diploma in Electrical Engineering — Ongoing</h4>
+      <p>Government Polytechnic, Ghosi, Mau.<br>
+         Core subjects: Power Systems, Electrical Machines, Switchgear &amp; Protection,
+         Control Systems, Estimation &amp; Costing.</p>
+    </div>
+    <div class="tl-item">
+      <div class="yr">2023 — 2024</div>
+      <h4>Secondary (10th)</h4>
+      <p>Janta Inter College, Sohsha Mathiya, Uttar Pradesh.</p>
+    </div>
+    <div class="tl-item">
+      <div class="yr">Ongoing</div>
+      <h4>Self-Learning</h4>
+      <p>AutoCAD, AI tools, web development, and industrial automation fundamentals.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="rv">
+    <span class="eyebrow">Skills</span>
+    <h2 class="title">Topics I'm <em>learning</em></h2>
+    <p class="sub">Yeh current learning areas hain, skill ratings ya professional qualifications nahi.</p>
+  </div>
+  <div class="grid g3 rv">
+    <div class="card"><span class="ico">⚡</span><h4>Electrical Fundamentals</h4><p>Power systems, electrical machines, protection, and basic calculations.</p></div>
+    <div class="card"><span class="ico">📐</span><h4>AutoCAD</h4><p>Learning 2D drafting and electrical diagram basics.</p></div>
+    <div class="card"><span class="ico">🌐</span><h4>Web Development</h4><p>HTML, CSS, JavaScript, and responsive page layouts.</p></div>
+    <div class="card"><span class="ico">🤖</span><h4>AI Tools</h4><p>Exploring practical uses of AI tools for learning and prototyping.</p></div>
+    <div class="card"><span class="ico">🏭</span><h4>Automation</h4><p>PLC and industrial automation concepts; currently learning.</p></div>
+  </div>
+</section>
+
+<!-- ================= CERTIFICATES ================= -->
+<section id="learning">
+  <div class="rv">
+    <span class="eyebrow">Certificates &amp; Learning</span>
+    <h2 class="title">Learning <em>milestones</em></h2>
+    <p class="sub">Credentials listed from the original portfolio. Certificate links can be added when available.</p>
+  </div>
+  <div class="grid g3 rv">
+    <div class="card"><span class="ico">💻</span><h4>CCC</h4><p>Computer Concepts course. Add the issuing organization and credential link when ready.</p></div>
+    <div class="card"><span class="ico">🎓</span><h4>Microsoft AI Educator</h4><p>AI learning credential listed in the original portfolio. Add a verification link when available.</p></div>
+    <div class="card"><span class="ico">🏭</span><h4>PLC &amp; Industrial Automation</h4><p>Currently learning; not presented as a completed certification.</p></div>
+  </div>
+</section>
+
+<!-- ================= INTERACTIVE TOOLS ================= -->
+<section id="tools">
+  <div class="rv">
+    <span class="eyebrow">⚡ Try Something</span>
+    <h2 class="title">Educational Electrical <em>Calculators</em></h2>
+    <p class="sub">
+      Basic browser-based examples for learning formulas. Results are estimates and are not
+      design, installation, protection, or safety recommendations.
+    </p>
+  </div>
+
+  <div class="tool-notice"><strong>Safety notice:</strong> Do not use these examples to select cables, breakers,
+    transformers, generators, or make live electrical decisions. Confirm every real design with a qualified
+    professional and applicable standards.</div>
+
+  <div class="toolwrap rv">
+    <div class="tooltabs" id="toolTabs">
+      <button class="ttab on" data-t="t1">Motor Current</button>
+      <button class="ttab" data-t="t2">Consumption</button>
+      <button class="ttab" data-t="t3">Voltage Drop</button>
+      <button class="ttab" data-t="t4">PF &amp; Capacitor</button>
+      <button class="ttab" data-t="t5">Transformer</button>
+      <button class="ttab" data-t="t7">Short Circuit</button>
+      <button class="ttab" data-t="t8">Motor Speed</button>
+    </div>
+
+    <!-- 1. MOTOR LOAD CURRENT -->
+    <div class="tpanel on" id="t1">
+      <h3>⚡ Motor Load Current — AC / DC · Single &amp; Three Phase</h3>
+      <p class="desc">Practice a basic current estimate for a single-phase, three-phase, or DC motor.
+        No cable or protection-device sizing is provided.</p>
+      <div class="fgrid">
+        <label>System Type
+          <select id="m_sys">
+            <option value="3">3 Phase (AC)</option>
+            <option value="1">1 Phase (AC)</option>
+            <option value="dc">DC System</option>
+          </select>
+        </label>
+        <label>Power Unit
+          <select id="m_unit"><option value="kw">kW</option><option value="hp">HP</option></select>
+        </label>
+        <label>Motor Rating <input id="m_p" type="number" value="7.5" step="0.1"></label>
+        <label>Voltage (V) <input id="m_v" type="number" value="415"></label>
+        <label>Power Factor <input id="m_pf" type="number" value="0.85" step="0.01"></label>
+        <label>Efficiency (%) <input id="m_eff" type="number" value="90"></label>
+      </div>
+      <button class="btn btn-p" onclick="calcMotor()">Calculate Current</button>
+      <div class="out" id="m_out"></div>
+    </div>
+
+    <!-- 2. CONSUMPTION -->
+    <div class="tpanel" id="t2">
+      <h3>🔋 Electric Consumption &amp; Bill Estimation</h3>
+      <p class="desc">Kisi bhi load ka daily / monthly / yearly unit (kWh) aur
+        electricity bill estimate karo.</p>
+      <div class="fgrid">
+        <label>Load (Watts) <input id="c_w" type="number" value="1500"></label>
+        <label>Quantity <input id="c_q" type="number" value="1"></label>
+        <label>Hours per Day <input id="c_h" type="number" value="8" step="0.5"></label>
+        <label>Days per Month <input id="c_d" type="number" value="30"></label>
+        <label>Tariff (₹ / unit) <input id="c_r" type="number" value="8" step="0.1"></label>
+      </div>
+      <button class="btn btn-p" onclick="calcCons()">Calculate</button>
+      <div class="out" id="c_out"></div>
+    </div>
+
+    <!-- 3. VOLTAGE DROP -->
+    <div class="tpanel" id="t3">
+      <h3>📉 Voltage Drop &amp; Cable Size Check</h3>
+      <p class="desc">Practice a simplified resistive voltage-drop estimate. It is not a cable-sizing result.</p>
+      <div class="fgrid">
+        <label>System
+          <select id="v_sys"><option value="3">3 Phase</option><option value="1">1 Phase</option></select>
+        </label>
+        <label>Conductor
+          <select id="v_mat"><option value="0.0175">Copper (Cu)</option><option value="0.028">Aluminium (Al)</option></select>
+        </label>
+        <label>Voltage (V) <input id="v_v" type="number" value="415"></label>
+        <label>Load Current (A) <input id="v_i" type="number" value="50"></label>
+        <label>Cable Length (m) <input id="v_l" type="number" value="60"></label>
+        <label>Cable Size (mm²) <input id="v_a" type="number" value="25"></label>
+      </div>
+      <button class="btn btn-p" onclick="calcVD()">Calculate Drop</button>
+      <div class="out" id="v_out"></div>
+    </div>
+
+    <!-- 4. PF & CAPACITOR -->
+    <div class="tpanel" id="t4">
+      <h3>🔧 Power Factor Improvement &amp; Capacitor Bank</h3>
+      <p class="desc">Estimate the ideal reactive-power change between two power-factor values.</p>
+      <div class="fgrid">
+        <label>Load (kW) <input id="p_kw" type="number" value="100"></label>
+        <label>Existing PF <input id="p_pf1" type="number" value="0.75" step="0.01"></label>
+        <label>Target PF <input id="p_pf2" type="number" value="0.95" step="0.01"></label>
+        <label>Voltage (V) <input id="p_v" type="number" value="415"></label>
+      </div>
+      <button class="btn btn-p" onclick="calcPF()">Calculate kVAR</button>
+      <div class="out" id="p_out"></div>
+    </div>
+
+    <!-- 5. TRANSFORMER -->
+    <div class="tpanel" id="t5">
+      <h3>🔌 Transformer Load &amp; Turn Ratio</h3>
+      <p class="desc">Practice ideal three-phase transformer current, loading, and turns-ratio calculations.</p>
+      <div class="fgrid">
+        <label>Transformer Rating (kVA) <input id="tr_kva" type="number" value="500"></label>
+        <label>Secondary Voltage (V) <input id="tr_v" type="number" value="415"></label>
+        <label>Connected Load (kW) <input id="tr_load" type="number" value="350"></label>
+        <label>Load PF <input id="tr_pf" type="number" value="0.85" step="0.01"></label>
+        <label>Primary Voltage (V) <input id="tr_vp" type="number" value="11000"></label>
+        <label>Primary Turns <input id="tr_np" type="number" value="1000"></label>
+      </div>
+      <button class="btn btn-p" onclick="calcTR()">Calculate</button>
+      <div class="out" id="tr_out"></div>
+    </div>
+
+    <!-- 7. SHORT CIRCUIT -->
+    <div class="tpanel" id="t7">
+      <h3>💥 Simplified Transformer Fault Current</h3>
+      <p class="desc">Estimate a symmetrical RMS fault-current example using transformer rating and impedance only.
+        Upstream network and other system impedances are not included.</p>
+      <div class="fgrid">
+        <label>Transformer Rating (kVA) <input id="sc_kva" type="number" value="1000"></label>
+        <label>Secondary Voltage (V) <input id="sc_v" type="number" value="415"></label>
+        <label>% Impedance (Z%) <input id="sc_z" type="number" value="5" step="0.1"></label>
+      </div>
+      <button class="btn btn-p" onclick="calcSC()">Calculate Fault Current</button>
+      <div class="out" id="sc_out"></div>
+    </div>
+
+    <!-- 8. MOTOR SPEED -->
+    <div class="tpanel" id="t8">
+      <h3>🔄 Motor Synchronous Speed &amp; Slip</h3>
+      <p class="desc">Supply frequency aur poles se synchronous speed, aur actual RPM
+        se slip percentage nikaalo.</p>
+      <div class="fgrid">
+        <label>Supply Frequency (Hz) <input id="ms_f" type="number" value="50"></label>
+        <label>Number of Poles <input id="ms_p" type="number" value="4"></label>
+        <label>Actual Rotor Speed (RPM) <input id="ms_n" type="number" value="1440"></label>
+      </div>
+      <button class="btn btn-p" onclick="calcMS()">Calculate</button>
+      <div class="out" id="ms_out"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<div class="ad-space" data-ad-position="1">Ad space · Add publisher and slot IDs to enable</div>
+
+<section id="projects">
+  <div class="rv">
+    <span class="eyebrow">Projects</span>
+    <h2 class="title">Engineering <em>work</em></h2>
+    <p class="sub">Selected learning projects and prototypes. Work in progress, with details to be added as each project develops.</p>
+  </div>
+
+  <div class="grid g3 rv">
+    <div class="proj">
+      <div class="num">01</div>
+      <h4>MindPower AI</h4>
+      <p>An in-progress idea for an AI-assisted learning and calculation platform focused on electrical engineering.</p>
+      <div class="chips"><span class="chip">In progress</span><span class="chip">AI</span></div>
+    </div>
+    <div class="proj">
+      <div class="num">02</div>
+      <h4>Study &amp; Task Planner</h4>
+      <p>A learning project concept for tracking study sessions, daily tasks, and progress in one place.</p>
+      <div class="chips"><span class="chip">Prototype idea</span><span class="chip">Web</span></div>
+    </div>
+    <div class="proj">
+      <div class="num">03</div>
+      <h4>Electrical Calculator Collection</h4>
+      <p>A set of simple web-based examples for practicing a few basic electrical formulas.</p>
+      <div class="chips"><span class="chip">Learning tool</span><span class="chip">JavaScript</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="ad-space" data-ad-position="2">Ad space · Add publisher and slot IDs to enable</div>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="rv">
+    <span class="eyebrow">Contact</span>
+    <h2 class="title">Let's <em>connect</em></h2>
+    <p class="sub">Koi project, calculation ya collaboration ke liye — message bhejo,
+      main jaldi reply karunga.</p>
+  </div>
+
+  <div class="cgrid rv">
+    <div>
+      <a class="cbox" href="mailto:patelankit4663@gmail.com">
+        <div class="ci">📧</div>
+        <div><h5>Email</h5><p>patelankit4663@gmail.com</p></div>
+      </a>
+      <a class="cbox" href="tel:+919651391614">
+        <div class="ci">📱</div>
+        <div><h5>Phone</h5><p>+91 9651391614</p></div>
+      </a>
+
+<a class="cbox" href="https://wa.me/919651391614?text=Hello%20Sir" target="_blank" rel="noopener">
+  <div class="ci">💬</div>
+  <div><h5>WhatsApp</h5><p>+91 9651391614</p></div>
+</a>
+
+
+      <div class="cbox">
+        <div class="ci">📍</div>
+        <div><h5>Location</h5><p>Kushinagar, India</p></div>
+      </div>
+      <a class="cbox" href="https://www.linkedin.com/in/rajkumar-patel-615976270/" target="_blank" rel="noopener noreferrer">
+        <div class="ci">💼</div>
+        <div><h5>LinkedIn</h5><p>View profile</p></div>
+      </a>
+      <a class="cbox" href="https://github.com/cuteraj9651" target="_blank" rel="noopener">
+        <div class="ci">🐙</div>
+        <div><h5>GitHub</h5><p>View projects</p></div>
+      </a>
+    </div>
+
+    <form onsubmit="sendMsg(event)">
+      <div class="fgrid">
+        <label>Your Name <input type="text" id="f_n" required placeholder="Naam likhein"></label>
+        <label>Your Email <input type="email" id="f_e" required placeholder="email@example.com"></label>
+      </div>
+      <label style="margin-bottom:14px">Subject <input type="text" id="f_s" placeholder="Kis baare me baat karni hai?"></label>
+      <label style="margin-bottom:18px">Message
+        <textarea id="f_m" required placeholder="Apna message yahan likhein..."></textarea>
+      </label>
+      <button class="btn btn-p" type="submit">📩 Send Message</button>
+      <div class="out" id="f_out"></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  © <span id="yr"></span> <b>Rajkumar Patel</b> — Student portfolio and learning projects.
+  <div class="footer-links">
+    <a href="privacy%20policy.html">Privacy Policy</a>
+    <a href="terms%20%20%26%20condition.html">Terms &amp; Conditions</a>
+    <a href="disclaimer.html">Disclaimer</a>
+  </div>
+</footer>
+
+<script>
+/* ============ HELPERS ============ */
+const $ = id => document.getElementById(id);
+const num = id => parseFloat($(id).value) || 0;
+const fx = (n, d = 2) => Number(n).toFixed(d);
+const row = (l, v) => `<div class="res"><span>${l}</span><b>${v}</b></div>`;
+const show = (id, html) => { const e = $(id); e.innerHTML = html; e.classList.add('show'); };
+
+/* ============ NAV ============ */
+$('burger').onclick = () => {
+  const isOpen = $('navLinks').classList.toggle('open');
+  $('burger').setAttribute('aria-expanded', String(isOpen));
+};
+document.querySelectorAll('.nav-links a').forEach(a =>
+  a.onclick = () => {
+    $('navLinks').classList.remove('open');
+    $('burger').setAttribute('aria-expanded', 'false');
+  });
+
+window.addEventListener('scroll', () => {
+  let cur = '';
+  document.querySelectorAll('section, .hero').forEach(s => {
+    if (scrollY >= s.offsetTop - 140) cur = s.id;
+  });
+  document.querySelectorAll('.nav-links a').forEach(a =>
+    a.classList.toggle('on', a.getAttribute('href') === '#' + cur));
+});
+
+/* ============ REVEAL + BARS ============ */
+const io = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      e.target.querySelectorAll('.bar i').forEach(b => b.style.width = b.dataset.w + '%');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: .15 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+/* ============ SWITCH TOY ============ */
+let on = false;
+$('toggle').onclick = () => {
+  on = !on;
+  $('toggle').classList.toggle('on', on);
+  $('bulb').classList.toggle('on', on);
+  $('switchMsg').textContent = on ? 'DEMO ON ⚡ NOT LIVE' : 'DEMO OFF';
+  $('switchMsg').style.color = on ? 'var(--gr)' : 'var(--cy)';
+};
+
+/* ============ TOOL TABS ============ */
+document.querySelectorAll('.ttab').forEach(t => {
+  t.onclick = () => {
+    document.querySelectorAll('.ttab').forEach(x => x.classList.remove('on'));
+    document.querySelectorAll('.tpanel').forEach(x => x.classList.remove('on'));
+    t.classList.add('on');
+    $(t.dataset.t).classList.add('on');
+  };
+});
+
+/* ============ 1. MOTOR CURRENT ============ */
+function calcMotor() {
+  const sys = $('m_sys').value, unit = $('m_unit').value;
+  const P = num('m_p'), V = num('m_v'), pf = num('m_pf'), eff = num('m_eff') / 100;
+  if (P <= 0 || V <= 0 || eff <= 0 || eff > 1 || (sys !== 'dc' && (pf <= 0 || pf > 1))) {
+    return show('m_out', '<span class="tag bad">Enter a positive rating and voltage, efficiency from 1–100%, and a valid AC power factor.</span>');
+  }
+
+  const W = unit === 'hp' ? P * 746 : P * 1000;
+  let I, f, note;
+
+  if (sys === 'dc') {
+    I = W / (V * eff); f = 'I ≈ P ÷ (V × η)';
+    note = 'Estimate assumes the entered motor rating is output power.';
+  } else if (sys === '1') {
+    I = W / (V * pf * eff); f = 'I = P ÷ (V × PF × η)';
+    note = 'Estimate assumes the entered motor rating is output power.';
+  } else {
+    I = W / (Math.sqrt(3) * V * pf * eff); f = 'I = P ÷ (√3 × V × PF × η)';
+    note = 'Estimate assumes the entered motor rating is output power.';
+  }
+
+  show('m_out', `
+    ${row('Entered Motor Rating', fx(W / 1000, 2) + ' kW (' + fx(W, 0) + ' W)')}
+    ${row('System', sys === 'dc' ? 'DC' : sys === '1' ? 'Single Phase' : 'Three Phase')}
+    ${row('Estimated Current', `<span class="big">${fx(I, 2)} A</span>`)}
+    <span class="formula">${f}</span>
+    <p style="font-size:.8rem;color:var(--mut);margin-top:10px">💡 ${note}</p>
+  `);
+}
+
+/* ============ 2. CONSUMPTION ============ */
+function calcCons() {
+  const w = num('c_w'), q = num('c_q'), h = num('c_h'), d = num('c_d'), r = num('c_r');
+  if (w <= 0 || q <= 0 || h <= 0 || h > 24 || d <= 0 || d > 31 || r < 0) {
+    return show('c_out', '<span class="tag bad">Enter positive load and quantity, 1–24 hours, 1–31 days, and a non-negative tariff.</span>');
+  }
+
+  const kW = (w * q) / 1000;
+  const daily = kW * h;
+  const monthly = daily * d;
+  const yearly = monthly * 12;
+
+  show('c_out', `
+    ${row('Total Connected Load', fx(kW, 3) + ' kW')}
+    ${row('Daily Consumption', `<span class="big">${fx(daily, 2)} kWh</span>`)}
+    ${row('Monthly Consumption', fx(monthly, 2) + ' kWh (units)')}
+    ${row('Yearly Consumption', fx(yearly, 2) + ' kWh (units)')}
+    ${row('Estimated Monthly Bill', '₹ ' + fx(monthly * r, 2))}
+    ${row('Estimated Yearly Bill', '₹ ' + fx(yearly * r, 2))}
+    <span class="formula">kWh = (Watt × Hours) ÷ 1000 &nbsp;|&nbsp; Bill = Units × Tariff</span>
+  `);
+}
+
+/* ============ 3. VOLTAGE DROP ============ */
+function calcVD() {
+  const sys = $('v_sys').value, rho = parseFloat($('v_mat').value);
+  const V = num('v_v'), I = num('v_i'), L = num('v_l'), A = num('v_a');
+  if (V <= 0 || I <= 0 || L <= 0 || A <= 0) {
+    return show('v_out', '<span class="tag bad">All voltage, current, cable length, and cable area values must be positive.</span>');
+  }
+
+  const k = sys === '1' ? 2 : Math.sqrt(3);
+  const Vd = (k * L * I * rho) / A;
+  const pct = (Vd / V) * 100;
+
+  show('v_out', `
+    ${row('Conductor Material', rho === 0.0175 ? 'Copper' : 'Aluminium')}
+    ${row('Estimated Voltage Drop', fx(Vd, 3) + ' V')}
+    ${row('Estimated Drop', `<span class="big">${fx(pct, 2)} %</span>`)}
+    <span class="formula">Simplified resistive estimate; excludes power factor, reactance, conductor temperature, and installation conditions.</span>
+  `);
+}
+
+/* ============ 4. POWER FACTOR ============ */
+function calcPF() {
+  const kW = num('p_kw'), pf1 = num('p_pf1'), pf2 = num('p_pf2'), V = num('p_v');
+  if (kW <= 0 || V <= 0 || pf1 <= 0 || pf2 <= 0 || pf1 > 1 || pf2 > 1) {
+    return show('p_out', '<span class="tag bad">Enter positive load and voltage, and power factors between 0 and 1.</span>');
+  }
+  if (pf1 >= pf2) return show('p_out', '<span class="tag warn">Target PF, existing PF se zyada hona chahiye</span>');
+
+  const t1 = Math.tan(Math.acos(pf1));
+  const t2 = Math.tan(Math.acos(pf2));
+  const kvar = kW * (t1 - t2);
+  const kvarh = kW * t1, kvarh2 = kW * t2;
+  const Ic = (kvar * 1000) / (Math.sqrt(3) * V);
+
+  show('p_out', `
+    ${row('Existing kVAR', fx(kvarh, 2) + ' kVAR')}
+    ${row('Required kVAR (after correction)', fx(kvarh2, 2) + ' kVAR')}
+    ${row('Capacitor Bank Required', `<span class="big">${fx(kvar, 2)} kVAR</span>`)}
+    ${row('Capacitor Current (3φ)', fx(Ic, 2) + ' A')}
+    ${row('Estimated Capacitor Requirement', fx(kvar, 2) + ' kVAR')}
+    <span class="formula">kVAR = kW × (tan φ₁ − tan φ₂) &nbsp;|&nbsp; φ = cos⁻¹(PF)</span>
+  `);
+}
+
+/* ============ 5. TRANSFORMER ============ */
+function calcTR() {
+  const kva = num('tr_kva'), V = num('tr_v'), load = num('tr_load'), pf = num('tr_pf');
+  const vp = num('tr_vp'), np = num('tr_np');
+  if (kva <= 0 || V <= 0 || load < 0 || pf <= 0 || pf > 1 || vp <= 0 || np <= 0) {
+    return show('tr_out', '<span class="tag bad">Enter positive ratings and voltages, non-negative load, and a power factor between 0 and 1.</span>');
+  }
+
+  const Irated = (kva * 1000) / (Math.sqrt(3) * V);
+  const Iload = (load * 1000) / (Math.sqrt(3) * V * (pf || 1));
+  const loading = (load / (kva * (pf || 1))) * 100;
+  const ns = np * (V / vp);
+  const ratio = vp / V;
+
+  show('tr_out', `
+    ${row('Rated Secondary Current', fx(Irated, 2) + ' A')}
+    ${row('Load Current', fx(Iload, 2) + ' A')}
+    ${row('% Loading', `<span class="big">${fx(loading, 2)} %</span>`)}
+    ${row('Turns Ratio (Vp : Vs)', fx(ratio, 2) + ' : 1')}
+    ${row('Secondary Turns (approx.)', fx(ns, 0) + ' turns')}
+    <span class="formula">I = kVA×1000 ÷ (√3 × V) · Np/Ns = Vp/Vs</span>
+  `);
+}
+
+/* ============ 7. SHORT CIRCUIT ============ */
+function calcSC() {
+  const kva = num('sc_kva'), V = num('sc_v'), z = num('sc_z');
+  if (kva <= 0 || V <= 0 || z <= 0) {
+    return show('sc_out', '<span class="tag bad">Transformer rating, voltage, and impedance must be positive.</span>');
+  }
+
+  const Isc = (kva * 1000) / (Math.sqrt(3) * V * (z / 100));
+
+  show('sc_out', `
+    ${row('Transformer Rating', kva + ' kVA @ ' + z + '% Z')}
+    ${row('Simplified Symmetrical RMS Estimate', `<span class="big">${fx(Isc, 0)} A (${fx(Isc / 1000, 3)} kA)</span>`)}
+    <span class="formula">Isc ≈ (transformer kVA × 1000) ÷ (√3 × secondary voltage × per-unit impedance). Assumes transformer impedance only.</span>
+  `);
+}
+
+/* ============ 8. MOTOR SPEED ============ */
+function calcMS() {
+  const f = num('ms_f'), p = num('ms_p'), n = num('ms_n');
+  if (f <= 0 || p <= 0 || !Number.isInteger(p) || p % 2 !== 0 || n < 0) {
+    return show('ms_out', '<span class="tag bad">Enter a positive frequency, a positive even pole count, and a non-negative rotor speed.</span>');
+  }
+
+  const Ns = (120 * f) / p;
+  const slip = n ? ((Ns - n) / Ns) * 100 : 0;
+  const nr = Ns - n;
+
+  show('ms_out', `
+    ${row('Supply Frequency', f + ' Hz')}
+    ${row('Number of Poles', p + ' Pole')}
+    ${row('Synchronous Speed (Ns)', `<span class="big">${fx(Ns, 0)} RPM</span>`)}
+    ${row('Actual Speed', n ? fx(n, 0) + ' RPM' : '—')}
+    ${row('Slip Speed', n ? fx(nr, 1) + ' RPM' : '—')}
+    ${row('% Slip', n ? fx(slip, 2) + ' %' : '—')}
+    <span class="formula">Ns = (120 × f) ÷ P &nbsp;|&nbsp; %Slip = ((Ns − N) ÷ Ns) × 100</span>
+  `);
+}
+
+/* ============ CONTACT FORM ============ */
+function sendMsg(e) {
+  e.preventDefault();
+  const n = $('f_n').value, em = $('f_e').value, s = $('f_s').value, m = $('f_m').value;
+  const body = encodeURIComponent(`Name: ${n}\nEmail: ${em}\n\n${m}`);
+  const sub = encodeURIComponent(s || 'Portfolio Contact');
+  window.location.href = `mailto:patelankit4663@gmail.com?subject=${sub}&body=${body}`;
+  show('f_out', '<span class="tag ok">✅ Mail app khul raha hai... agar na khule to directly patelankit4663@gmail.com pe mail karein.</span>');
+  e.target.reset();
+}
+
+/* ============ MISC ============ */
+$('yr').textContent = new Date().getFullYear();
+
+/* Add the AdSense publisher ID and each matching ad-slot ID after approval. */
+const adsensePublisherId = "";
+const adSlotIds = ["", "", ""]; // Add one slot ID per placeholder, in page order.
+const configuredAdSpaces = Array.from(document.querySelectorAll(".ad-space"))
+  .filter(space => adSlotIds[Number(space.dataset.adPosition)]);
+
+if (adsensePublisherId && configuredAdSpaces.length) {
+  const adsenseScript = document.createElement("script");
+  adsenseScript.async = true;
+  adsenseScript.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${encodeURIComponent(adsensePublisherId)}`;
+  adsenseScript.crossOrigin = "anonymous";
+  document.head.append(adsenseScript);
+
+  configuredAdSpaces.forEach(space => {
+    const ad = document.createElement("ins");
+    ad.className = "adsbygoogle";
+    ad.style.display = "block";
+    ad.setAttribute("data-ad-client", adsensePublisherId);
+    ad.setAttribute("data-ad-slot", adSlotIds[Number(space.dataset.adPosition)]);
+    ad.setAttribute("data-ad-format", "auto");
+    ad.setAttribute("data-full-width-responsive", "true");
+    space.replaceChildren(ad);
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  });
+}
+</script>
+</body>
+</html>
