@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Rajkumar Patel's portfolio: electrical engineering studies, learning projects, and educational web tools.">
 <meta name="theme-color" content="#070b14">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4615523830375296"
-     crossorigin="anonymous"></script>
+<meta name="3ced11b11ac863c4ef096dc242e73b5e73bcdaa2" content="3ced11b11ac863c4ef096dc242e73b5e73bcdaa2">
 <title>Rajkumar Patel | Electrical Engineering Student</title>
 <style>
 
@@ -282,10 +281,6 @@ footer b{color:var(--cy)}
 .footer-links{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:16px}
 .footer-links a{color:var(--mut);text-decoration:none}
 .footer-links a:hover{color:var(--cy)}
-.ad-space{max-width:970px;min-height:90px;margin:12px auto;padding:18px;
-  display:grid;place-items:center;border:1px dashed var(--line);border-radius:12px;
-  color:var(--mut);font-size:.75rem;letter-spacing:1px;text-transform:uppercase}
-.ad-space:empty{display:none}
 .tool-notice{margin:0 auto 28px;padding:16px 18px;max-width:1000px;
   border:1px solid rgba(255,176,32,.35);border-radius:12px;
   background:rgba(255,176,32,.07);color:var(--mut);font-size:.88rem}
@@ -422,8 +417,6 @@ footer b{color:var(--cy)}
     </div>
   </div>
 </section>
-
-<div class="ad-space" data-ad-position="0">Ad space · Add publisher and slot IDs to enable</div>
 
 <!-- ================= EDUCATION ================= -->
 <section id="education">
@@ -632,8 +625,6 @@ footer b{color:var(--cy)}
 </section>
 
 <!-- ================= PROJECTS ================= -->
-<div class="ad-space" data-ad-position="1">Ad space · Add publisher and slot IDs to enable</div>
-
 <section id="projects">
   <div class="rv">
     <span class="eyebrow">Projects</span>
@@ -662,8 +653,6 @@ footer b{color:var(--cy)}
     </div>
   </div>
 </section>
-
-<div class="ad-space" data-ad-position="2">Ad space · Add publisher and slot IDs to enable</div>
 
 <!-- ================= CONTACT ================= -->
 <section id="contact">
@@ -963,25 +952,6 @@ function sendMsg(e) {
 /* ============ MISC ============ */
 $('yr').textContent = new Date().getFullYear();
 
-/* Add the AdSense publisher ID and each matching ad-slot ID after approval. */
-const adsensePublisherId = "ca-pub-4615523830375296";
-const adSlotIds = ["", "", ""]; // Add one slot ID per placeholder, in page order.
-const configuredAdSpaces = Array.from(document.querySelectorAll(".ad-space"))
-  .filter(space => adSlotIds[Number(space.dataset.adPosition)]);
-
-if (adsensePublisherId && configuredAdSpaces.length) {
-  configuredAdSpaces.forEach(space => {
-    const ad = document.createElement("ins");
-    ad.className = "adsbygoogle";
-    ad.style.display = "block";
-    ad.setAttribute("data-ad-client", adsensePublisherId);
-    ad.setAttribute("data-ad-slot", adSlotIds[Number(space.dataset.adPosition)]);
-    ad.setAttribute("data-ad-format", "auto");
-    ad.setAttribute("data-full-width-responsive", "true");
-    space.replaceChildren(ad);
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
-  });
-}
 </script>
 </body>
 </html>
